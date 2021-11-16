@@ -4,7 +4,7 @@
 rm(list = ls()) 
 if(!require(pacman)) install.packages("pacman") ; require(pacman) 
 p_load(rio,skimr,tidyverse,readxl,haven,WriteXLS)
-Sys.setlocale("LC_CTYPE", "en_US.UTF-8")
+
 
 #  Punto 1 #Loops
 
