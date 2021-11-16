@@ -6,7 +6,7 @@ if(!require(pacman)) install.packages("pacman") ; require(pacman)
 p_load(rio,skimr,tidyverse,readxl,haven,WriteXLS)
 
 
-#  Punto 1 #Loops
+# Punto 1-Loops
 
 chip = list()
 
@@ -17,7 +17,7 @@ for (i in 1:length(files)) {
 }
 
 
-#Punto 2
+#Punto 2-Funcion
 
 fextraccion = function(n,lista,tipo_rubro){
   nlist = lista[[n]] 
@@ -30,21 +30,20 @@ fextraccion(n = 10 , lista = chip , tipo_rubro = "SALUD")
 
 fextraccion = function(n,lista,tipo_rubro){
   
-  # crear df
   df = data.frame(valor=NA,cod_dane=NA,periodo=NA)  
   nlist = lista[[n]] 
   
-  # extraer codigo dane
   df$cod_dane = colnames(nlist)[1]
   
-  # extraer periodo
   df$periodo = nlist[2,1]
-  
-  # extraer el valor
+
   colnames(nlist) = nlist[7,]
   df$valor = nlist %>% subset(NOMBRE==tipo_rubro) %>% select(`PAGOS(Pesos)`)
   
   return(df)  
 }
 fextraccion(n = 10 , lista = chip , tipo_rubro = "SALUD")
+
+#punto 3-funcion aplicada
+
 
