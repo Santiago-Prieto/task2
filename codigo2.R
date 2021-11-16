@@ -15,7 +15,7 @@ for (i in 1:length(files)) {
   chip[[i]]<-read_excel(files[i])
   
 }
-
+#genero y aplico el loop para importar
 
 #Punto 2-Funcion
 
@@ -42,6 +42,8 @@ fextraccion = function(n,lista,tipo_rubro){
   
   return(df)  
 }
+
+#creo la funcion de extraccion, igualmente especifico la salida en el dataframe de las variables
 fextraccion(n = 10 , lista = chip , tipo_rubro = "SALUD")
 
 #punto 3-funcion aplicada
